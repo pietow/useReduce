@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-export function useReducer(reducer, initialState) {
+export function myReducer(reducer, initialState) {
     const [state, setState] = useState(initialState)
 
     function dispatch(actionObject) {

@@ -1,14 +1,14 @@
 /** @format */
 
 import React from 'react'
-import { useReducer } from './MyReact.js'
+import { myReducer } from './MyReact.js'
 import Chat from './Chat.js'
 import ContactList from './ContactList.js'
 import { initialState, messengerReducer } from './messengerReducer'
 
 export default function Messenger() {
-    const [state, dispatch] = useReducer(messengerReducer, initialState)
-    const message = state.messages[state.selectedId]
+    const [state, dispatch] = myReducer(messengerReducer, initialState)
+    const message = state.messages
     const contact = contacts.find((c) => c.id === state.selectedId)
     return (
         <div>

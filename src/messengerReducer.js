@@ -2,37 +2,44 @@
 
 export const initialState = {
     selectedId: 0,
-    messages: {
-        0: 'Hello, Taylor',
-        1: 'Hello, Alice',
-        2: 'Hello, Bob',
-    },
+    messages: 'Hello',
+    drafts: ['HelloWorld', '', ''],
 }
 
 export function messengerReducer(state, action) {
+    console.log(state)
     switch (action.type) {
         case 'changed_selection': {
             return {
                 ...state,
                 selectedId: action.contactId,
+                messages: state.drafts[action.contactId],
             }
         }
         case 'edited_message': {
             return {
                 ...state,
-                messages: {
-                    ...state.messages,
-                    [state.selectedId]: action.message,
-                },
+                messages: action.message,
+                drafts: state.drafts.map((x, i) => {
+                    if (i === action.contactId) {
+                        return action.message
+                    } else {
+                        return x
+                    }
+                }),
             }
         }
         case 'sent_message': {
             return {
                 ...state,
-                messages: {
-                    ...state.messages,
-                    [state.selectedId]: '',
-                },
+                messages: '',
+                drafts: state.drafts.map((x, i) => {
+                    if (i === action.contactId) {
+                        return ''
+                    } else {
+                        return x
+                    }
+                }),
             }
         }
         default: {
