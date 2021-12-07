@@ -1,0 +1,12 @@
+# @format
+
+{
+    'tabWidth': 4,
+    'semi': false,
+    'singleQuote': true,
+    'jsxSingleQuote': false,
+    'jsxBracketSameLine': true,
+    'trailingComma': 'all',
+    'arrowParens': 'always',
+    'insertPragma': true,
+}
