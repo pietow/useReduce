@@ -1,7 +1,7 @@
 /** @format */
 
-import React, { useReducer } from 'react'
-import { useImmerReducer } from 'use-immer'
+import React from 'react'
+import { useReducer } from './MyReact.js'
 import Chat from './Chat.js'
 import ContactList from './ContactList.js'
 import { initialState, messengerReducer } from './messengerReducer'
@@ -10,7 +10,6 @@ export default function Messenger() {
     const [state, dispatch] = useReducer(messengerReducer, initialState)
     const message = state.message
     const contact = contacts.find((c) => c.id === state.selectedId)
-    console.log(state)
     return (
         <div>
             <ContactList

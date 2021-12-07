@@ -10,7 +10,6 @@ export default function ContactList({ contacts, selectedId, dispatch }) {
                     <li key={contact.id}>
                         <button
                             onClick={() => {
-                                // TODO: dispatch changed_selection
                                 dispatch({
                                     type: 'changed_selection',
                                     contactId: contact.id,

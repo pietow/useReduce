@@ -20,8 +20,6 @@ export default function Chat({ contact, message, dispatch }) {
                         type: 'edited_message',
                         message: e.target.value,
                     })
-                    // TODO: dispatch edited_message
-                    // (Read the input value from e.target.value)
                 }}
             />
             <br />

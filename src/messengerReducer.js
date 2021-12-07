@@ -16,7 +16,7 @@ export function messengerReducer(state, action) {
             }
         }
         case 'edited_message': {
-            state.drafts[state.selectedId] = action.message
+            state.drafts[state.selectedId] = action.message   //Mutation ---> use useImmerReducer
             return {
                 ...state,
                 message: action.message,
