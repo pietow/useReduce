@@ -3,13 +3,6 @@
 import React from 'react'
 
 export default function Chat({ contact, message, dispatch }) {
-    const handleSend = () => {
-        alert(`${message} send to ${contact.email}`)
-        dispatch({
-            type: 'edited_message',
-            message: '',
-        })
-    }
     return (
         <section className="chat">
             <textarea
@@ -23,7 +16,15 @@ export default function Chat({ contact, message, dispatch }) {
                 }}
             />
             <br />
-            <button onClick={handleSend}>Send to {contact.email}</button>
+            <button
+                onClick={() => {
+                    alert(`Sending "${message}" to ${contact.email}`)
+                    dispatch({
+                        type: 'sent_message',
+                    })
+                }}>
+                Send to {contact.email}
+            </button>
         </section>
     )
 }
